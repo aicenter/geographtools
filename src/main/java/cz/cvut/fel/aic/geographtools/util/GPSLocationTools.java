@@ -2,7 +2,7 @@
 package cz.cvut.fel.aic.geographtools.util;
 
 import com.vividsolutions.jts.geom.Coordinate;
-import cz.agents.basestructures.GPSLocation;
+import cz.cvut.fel.aic.geographtools.GPSLocation;
 
 /**
  * Tools for working with GPSLocation.

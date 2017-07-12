@@ -1,7 +1,7 @@
 /* This code is owned by Umotional s.r.o. (IN: 03974618). All Rights Reserved. */
 package cz.cvut.fel.aic.geographtools.util;
 
-import cz.agents.basestructures.GPSLocation;
+import cz.cvut.fel.aic.geographtools.GPSLocation;
 
 /**
  * Implementation of <code>KDTreeResolver</code> for GPSLocation and its subclasses.

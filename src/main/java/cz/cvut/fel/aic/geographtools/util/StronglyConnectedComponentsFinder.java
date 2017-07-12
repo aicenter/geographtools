@@ -1,9 +1,9 @@
 /* This code is owned by Umotional s.r.o. (IN: 03974618). All Rights Reserved. */
 package cz.cvut.fel.aic.geographtools.util;
 
-import cz.agents.basestructures.Edge;
-import cz.agents.basestructures.GraphStructure;
-import cz.agents.basestructures.Node;
+import cz.cvut.fel.aic.geographtools.Edge;
+import cz.cvut.fel.aic.geographtools.GraphStructure;
+import cz.cvut.fel.aic.geographtools.Node;
 
 import java.util.*;
 import java.util.stream.Collectors;
