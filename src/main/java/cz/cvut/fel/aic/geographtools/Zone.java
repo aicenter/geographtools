@@ -40,9 +40,9 @@ public class Zone<TNode extends Node, TEdge extends Edge> implements Serializabl
 	/**
 	 * bounding box for given graph
 	 */
-	public final BoundingBox boundingBox;
+	public final BoundingBoxNew boundingBox;
 
-	public Zone(String name, int srid, GraphStructure<TNode, TEdge> graph, BoundingBox boundingBox) {
+	public Zone(String name, int srid, GraphStructure<TNode, TEdge> graph, BoundingBoxNew boundingBox) {
 		this.name = name;
 		this.srid = srid;
 		this.graph = graph;

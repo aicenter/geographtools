@@ -38,6 +38,12 @@ public class Edge implements Serializable, Cloneable {
 	 */
 	public final int length;
 
+    public int getLength() {
+        return length;
+    }
+    
+    
+
 	public Edge(int fromId, int toId, int length) {
 		this.fromId = fromId;
 		this.toId = toId;

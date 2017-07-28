@@ -33,6 +33,12 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
 	 */
 	public final long sourceId;
 
+    public int getId() {
+        return id;
+    }
+    
+    
+
 	public Node(int id, long sourceId, int latE6, int lonE6, int latProjected, int lonProjected, int elevation) {
 		super(latE6, lonE6, latProjected, lonProjected, elevation);
 		this.id = id;
@@ -41,6 +47,12 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
 
 	public Node(int id, long sourceId, double lat, double lon, int latProjected, int lonProjected, int elevation) {
 		super(lat, lon, latProjected, lonProjected, elevation);
+		this.id = id;
+		this.sourceId = sourceId;
+	}
+    
+    public Node(int id, long sourceId, GPSLocation location) {
+		super(location.latE6, location.lonE6, location.latProjected, location.lonProjected, location.elevation);
 		this.id = id;
 		this.sourceId = sourceId;
 	}

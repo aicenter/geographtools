@@ -1,20 +1,4 @@
-/*
- *  Copyright (C) 2016-2017 Umotional s.r.o. (IN: 03974618)
- *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU Lesser General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
+/* This code is owned by Umotional s.r.o. (IN: 03974618). All Rights Reserved. */
 package cz.cvut.fel.aic.geographtools;
 
 import java.io.Serializable;
@@ -43,58 +27,37 @@ public class BoundingBox implements Serializable {
 	 */
 	public final int maxLatE6;
 
-	public BoundingBox(int minLatE6, int minLonE6, int maxLatE6, int maxLonE6) {
-		this.minLatE6 = minLatE6;
+	public BoundingBox(int minLonE6, int minLatE6, int maxLonE6, int maxLatE6) {
 		this.minLonE6 = minLonE6;
-		this.maxLatE6 = maxLatE6;
+		this.minLatE6 = minLatE6;
 		this.maxLonE6 = maxLonE6;
-	}
-
-	public BoundingBox(double minLat, double minLon, double maxLat, double maxLon) {
-		this.minLatE6 = (int) (minLat * 1e6);
-		this.minLonE6 = (int) (minLon * 1e6);
-		this.maxLatE6 = (int) (maxLat * 1e6);
-		this.maxLonE6 = (int) (maxLon * 1e6);
-	}
-
-	public double getMinLat() {
-		return ((double) minLatE6) / 1e6;
-	}
-
-	public double getMinLon() {
-		return ((double) minLonE6) / 1e6;
-	}
-
-	public double getMaxLat() {
-		return ((double) maxLatE6) / 1e6;
-	}
-
-	public double getMaxLon() {
-		return ((double) maxLonE6) / 1e6;
+		this.maxLatE6 = maxLatE6;
 	}
 
 	/**
-	 * Returns whether a point is in given bounding box, or not
+	 * returns wether point is in given bounding box, or not
 	 *
-	 * @param lat lat coordinate (gps lat)
-	 * @param lon lon coordinate (gps lon)
-	 * @return true if point is in given bounding box or on its edge, false otherwise
-	 */
-	public boolean inside(double lat, double lon) {
-		int latE6 = (int) (lat * 1e6);
-		int lonE6 = (int) (lon * 1e6);
-
-		return (((lonE6 >= minLonE6) && (lonE6 <= maxLonE6)) && ((latE6 >= minLatE6) && (latE6 <= maxLatE6)));
-	}
-
-	/**
-	 * Returns whether a point is in given bounding box, or not
-	 *
-	 * @param latE6 latE6 coordinate (gps lat)
 	 * @param lonE6 lonE6 coordinate (gps lon)
+	 * @param latE6 latE6 coordinate (gps lat)
 	 * @return true if point is in given bounding box or on its edge, false otherwise
 	 */
-	public boolean inside(int latE6, int lonE6) {
+	public boolean inside(int lonE6, int latE6) {
 		return (((lonE6 >= minLonE6) && (lonE6 <= maxLonE6)) && ((latE6 >= minLatE6) && (latE6 <= maxLatE6)));
+	}
+
+	public int getMinLonE6() {
+		return minLonE6;
+	}
+
+	public int getMinLatE6() {
+		return minLatE6;
+	}
+
+	public int getMaxLonE6() {
+		return maxLonE6;
+	}
+
+	public int getMaxLatE6() {
+		return maxLatE6;
 	}
 }
