@@ -120,6 +120,13 @@ public class GPSLocation implements Serializable, Cloneable {
 		this.elevation = elevation;
 	}
 
+    /**
+     * Constructor with zero elevation.
+     * @param latE6 latitude in WGS84 as integer representing fixed point real number with 6 decimal places
+     * @param lonE6 longitude in WGS84 as integer representing fixed point real number with 6 decimal places
+     * @param latProjected projected latitude as integer representing fixed point real number with 6 decimal places
+     * @param lonProjected projected longitude as integer representing fixed point real number with 6 decimal places
+     */
 	public GPSLocation(int latE6, int lonE6, int latProjected, int lonProjected) {
 		this(latE6, lonE6, latProjected, lonProjected, 0);
 	}
@@ -136,6 +143,13 @@ public class GPSLocation implements Serializable, Cloneable {
 		this((int) (lat * 1E6), (int) (lon * 1E6), latProjected, lonProjected, elevation);
 	}
 
+    /**
+     * Constructor with latitude and longitude as double with zero elevation.
+     * @param lat latitude in WGS84
+     * @param lon longitude in WGS84
+     * @param latProjected projected latitude as integer representing fixed point real number with 6 decimal places
+     * @param lonProjected projected longitude as integer representing fixed point real number with 6 decimal places
+     */
 	public GPSLocation(double lat, double lon, int latProjected, int lonProjected) {
 		this(lat, lon, latProjected, lonProjected, 0);
 	}
