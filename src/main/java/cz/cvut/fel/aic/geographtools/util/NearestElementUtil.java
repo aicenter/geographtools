@@ -198,11 +198,11 @@ public class NearestElementUtil<TElement> implements Serializable {
 	}
 
 	private static Coordinate getProjectedCoordinate(GPSLocation location) {
-		return new Coordinate(location.lonProjected, location.latProjected, 0);
+		return new Coordinate(location.getLongitudeProjected(), location.getLatitudeProjected(), 0);
 	}
 
 	private static boolean hasProjectedCoordinates(GPSLocation location) {
-		return location.latProjected != 0 || location.lonProjected != 0;
+		return location.getLatitudeProjected1E6() != 0 || location.getLatitudeProjected1E6() != 0;
 	}
 
 	private void readObject(ObjectInputStream ois) throws ClassNotFoundException, IOException {

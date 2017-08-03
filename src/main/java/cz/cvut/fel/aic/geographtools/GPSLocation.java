@@ -34,20 +34,84 @@ public class GPSLocation implements Serializable, Cloneable {
 	public final int lonE6;
 
 	/**
-	 * projected latitude computed using srid stored in zone
+	 * Projected latitude computed using srid stored in zone. Location is saved as a fix point real number with six 
+     * digits after the radix point ie scaled by 10^6.
 	 */
-	public final int latProjected;
+	protected final int latProjected;
 
 	/**
-	 * projected longitude computed using srid stored in zone
+	 * Projected longitude computed using srid stored in zone. Location is saved as a fix point real number with six 
+     * digits after the radix point ie scaled by 10^6.
 	 */
-	public final int lonProjected;
+	protected final int lonProjected;
 
 	/**
 	 * elevation above sea level
 	 */
 	public final int elevation;
+    
+    
+    
+    
+    /**
+     * Returns the projected latitude as integer representing a fixed point real number with 6 decimal places.
+     * @return projected latitude as integer representing a fixed point real number with 6 decimal places
+     */
+    public int getLatitudeProjected1E6(){
+        return latProjected;
+    }
+    
+    /**
+     * Returns the projected latitude as double.
+     * @return projected latitude
+     */
+    public double getLatitudeProjected(){
+        return (double) latProjected / 1E6;
+    }
+    
+    /**
+     * Returns the projected latitude as integer, (6) decimal places are truncated.
+     * @return projected latitude as rounded integer
+     */
+    public int getLatitudeProjectedRounded(){
+        return (int) Math.round(latProjected / 1E6);
+    }
+    
+    /**
+     * Returns the projected longitude as integer representing a fixed point real number with 6 decimal places.
+     * @return projected longitude as integer representing a fixed point real number with 6 decimal places
+     */
+    public int getLongitudeProjected1E6(){
+        return lonProjected;
+    }
+    
+    /**
+     * Returns the projected longitude as double.
+     * @return projected longitude
+     */
+    public double getLongitudeProjected(){
+        return (double) lonProjected / 1E6;
+    }
+    
+    /**
+     * Returns the projected longitude as integer, (6) decimal places are truncated.
+     * @return projected longitude as rounded integer
+     */
+    public int getLongitudeProjectedRounded(){
+        return (int) Math.round(lonProjected / 1E6);
+    }
+            
+    
+            
 
+    /**
+     * Constructor
+     * @param latE6 latitude in WGS84 as integer representing fixed point real number with 6 decimal places
+     * @param lonE6 longitude in WGS84 as integer representing fixed point real number with 6 decimal places
+     * @param latProjected projected latitude as integer representing fixed point real number with 6 decimal places
+     * @param lonProjected projected longitude as integer representing fixed point real number with 6 decimal places
+     * @param elevation elevation
+     */
 	public GPSLocation(int latE6, int lonE6, int latProjected, int lonProjected, int elevation) {
 		this.latE6 = latE6;
 		this.lonE6 = lonE6;
@@ -60,6 +124,14 @@ public class GPSLocation implements Serializable, Cloneable {
 		this(latE6, lonE6, latProjected, lonProjected, 0);
 	}
 
+    /**
+     * Constructor with latitude and longitude as double.
+     * @param lat latitude in WGS84
+     * @param lon longitude in WGS84
+     * @param latProjected projected latitude as integer representing fixed point real number with 6 decimal places
+     * @param lonProjected projected longitude as integer representing fixed point real number with 6 decimal places
+     * @param elevation elevation
+     */
 	public GPSLocation(double lat, double lon, int latProjected, int lonProjected, int elevation) {
 		this((int) (lat * 1E6), (int) (lon * 1E6), latProjected, lonProjected, elevation);
 	}
@@ -67,6 +139,9 @@ public class GPSLocation implements Serializable, Cloneable {
 	public GPSLocation(double lat, double lon, int latProjected, int lonProjected) {
 		this(lat, lon, latProjected, lonProjected, 0);
 	}
+    
+    
+    
 
 	@Override
 	protected GPSLocation clone() {

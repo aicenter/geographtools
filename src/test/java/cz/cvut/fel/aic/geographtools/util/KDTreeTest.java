@@ -47,8 +47,8 @@ public class KDTreeTest {
 
 	public GPSLocation generateLocationWithRandomProjected() {
 
-		int projLat = rng.nextInt(10000);
-		int projLon = rng.nextInt(10000);
+		int projLat = rng.nextInt((int) (10000 * 1E6));
+		int projLon = rng.nextInt((int) (10000 * 1E6));
 
 		return new GPSLocation((double) projLat, (double) projLon, projLat, projLon, 0);
 	}

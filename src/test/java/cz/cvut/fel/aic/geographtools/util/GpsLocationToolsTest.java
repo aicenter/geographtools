@@ -25,8 +25,8 @@ public class GpsLocationToolsTest {
 		Assert.assertEquals(latitude, pragueGPSLoc.getLatitude(), 0.0001);
 		Assert.assertEquals(longitude, pragueGPSLoc.getLongitude(), 0.0001);
 
-		Assert.assertEquals(742723.6, pragueGPSLoc.lonProjected, 1);
-		Assert.assertEquals(1044163.9, pragueGPSLoc.latProjected, 1);
+		Assert.assertEquals(742723.6, pragueGPSLoc.getLongitudeProjected(), 1);
+		Assert.assertEquals(1044163.9, pragueGPSLoc.getLatitudeProjected(), 1);
 
 		Assert.assertEquals(elevation, pragueGPSLoc.elevation);
 
