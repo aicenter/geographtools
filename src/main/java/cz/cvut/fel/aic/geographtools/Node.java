@@ -44,8 +44,8 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
      * @param sourceId Node id inferred from the source data
      * @param latE6 latitude in WGS84 as integer representing fixed point real number with 6 decimal places
      * @param lonE6 longitude in WGS84 as integer representing fixed point real number with 6 decimal places
-     * @param latProjected projected latitude as integer representing fixed point real number with 6 decimal places
-     * @param lonProjected projected longitude as integer representing fixed point real number with 6 decimal places
+     * @param latProjected projected latitude as integer representing fixed point real number with 2 decimal places
+     * @param lonProjected projected longitude as integer representing fixed point real number with 2 decimal places
      * @param elevation elevation
      */
 	public Node(int id, long sourceId, int latE6, int lonE6, int latProjected, int lonProjected, int elevation) {
@@ -60,8 +60,8 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
      * @param sourceId Node id inferred from the source data
      * @param lat latitude in WGS84
      * @param lon longitude in WGS84
-     * @param latProjected projected latitude as integer representing fixed point real number with 6 decimal places
-     * @param lonProjected projected longitude as integer representing fixed point real number with 6 decimal places
+     * @param latProjected projected latitude as integer representing fixed point real number with 2 decimal places
+     * @param lonProjected projected longitude as integer representing fixed point real number with 2 decimal places
      * @param elevation elevation
      */
 	public Node(int id, long sourceId, double lat, double lon, int latProjected, int lonProjected, int elevation) {

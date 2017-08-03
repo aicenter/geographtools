@@ -34,8 +34,8 @@ public class GPSLocationTools {
 		Coordinate coordinate = new Coordinate(lon, lat);
 		Coordinate projectedCoordinate = transformer.toProjected(coordinate);
         
-        int projectedLatitude = (int) Math.round(projectedCoordinate.y * 1E6);
-        int projectedLongitude = (int) Math.round(projectedCoordinate.x * 1E6);
+        int projectedLatitude = (int) Math.round(projectedCoordinate.y * 1E2);
+        int projectedLongitude = (int) Math.round(projectedCoordinate.x * 1E2);
 
 		return new GPSLocation(lat, lon, projectedLatitude, projectedLongitude, (int) Math.round(elevation));
 	}

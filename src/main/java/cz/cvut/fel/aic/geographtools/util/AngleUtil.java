@@ -31,8 +31,8 @@ public final class AngleUtil {
 	}
 
 	private static double computeAngle(GPSLocation l1, GPSLocation l2) {
-		double angleFromXAxis = Math.atan2(l2.getLatitudeProjected1E6() - l1.getLatitudeProjected1E6(), 
-                l2.getLongitudeProjected1E6() - l1.getLongitudeProjected1E6());
+		double angleFromXAxis = Math.atan2(l2.getLatitudeProjected1E2() - l1.getLatitudeProjected1E2(), 
+                l2.getLongitudeProjected1E2() - l1.getLongitudeProjected1E2());
 		return angleFromXAxis;
 	}
 

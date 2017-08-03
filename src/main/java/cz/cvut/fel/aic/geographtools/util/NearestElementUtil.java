@@ -202,7 +202,7 @@ public class NearestElementUtil<TElement> implements Serializable {
 	}
 
 	private static boolean hasProjectedCoordinates(GPSLocation location) {
-		return location.getLatitudeProjected1E6() != 0 || location.getLatitudeProjected1E6() != 0;
+		return location.getLatitudeProjected1E2() != 0 || location.getLatitudeProjected1E2() != 0;
 	}
 
 	private void readObject(ObjectInputStream ois) throws ClassNotFoundException, IOException {
