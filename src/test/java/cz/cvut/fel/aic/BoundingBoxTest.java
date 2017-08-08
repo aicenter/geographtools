@@ -17,14 +17,14 @@
 
 package cz.cvut.fel.aic;
 
-import cz.cvut.fel.aic.geographtools.BoundingBoxNew;
+import cz.cvut.fel.aic.geographtools.BoundingBox;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class BoundingBoxTest {
 
-	private BoundingBoxNew boundingBox;
+	private BoundingBox boundingBox;
 
 	@Test
 	public void testMinLat() throws Exception {
@@ -104,11 +104,11 @@ public class BoundingBoxTest {
 		assertFalse(boundingBox.inside(49.759977, 15.222244));
 	}
 
-	private BoundingBoxNew callIntegerConstructor() {
-		return new BoundingBoxNew(50062400, 14349900, 50112800, 14484600);
+	private BoundingBox callIntegerConstructor() {
+		return new BoundingBox(50062400, 14349900, 50112800, 14484600);
 	}
 
-	private BoundingBoxNew callDoubleConstructor() {
-		return new BoundingBoxNew(50.062400, 14.349900, 50.112800, 14.484600);
+	private BoundingBox callDoubleConstructor() {
+		return new BoundingBox(50.062400, 14.349900, 50.112800, 14.484600);
 	}
 }
