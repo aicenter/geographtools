@@ -213,6 +213,17 @@ public class Graph<TNode extends Node, TEdge extends Edge> implements GraphStruc
 		return Collections.unmodifiableList(outgoingEdges);
 	}
 
+
+	@Override
+	public int numberOfNodes() {
+		return numberOfNodes;
+	}
+
+	@Override
+	public int numberOfEdges() {
+		return numberOfEdges;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)

@@ -13,6 +13,14 @@ public class EdgeId {
 		this.to = to;
 	}
 
+	public int getFrom() {
+		return from;
+	}
+
+	public int getTo() {
+		return to;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;

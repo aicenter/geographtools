@@ -50,6 +50,14 @@ public class Edge implements Serializable, Cloneable {
 		this.length = length;
 	}
 
+	public int getFromId() {
+		return fromId;
+	}
+
+	public int getToId() {
+		return toId;
+	}
+
 	@Override
 	protected Edge clone() {
 		return new Edge(this.fromId, this.toId, this.length);

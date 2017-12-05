@@ -34,14 +34,16 @@ public class GPSLocation implements Serializable, Cloneable {
 	public final int lonE6;
 
 	/**
-	 * Projected latitude computed using srid stored in zone. Location is saved as a fix point real number with two 
-     * digits after the radix point ie scaled by 10^2.
+	 * Projected latitude computed using srid stored in zone. Location is saved as a
+	 * fix point real number with two digits after the radix point ie scaled by
+	 * 10^2.
 	 */
 	protected final int latProjected;
 
 	/**
-	 * Projected longitude computed using srid stored in zone. Location is saved as a fix point real number with two 
-     * digits after the radix point ie scaled by 10^2.
+	 * Projected longitude computed using srid stored in zone. Location is saved as
+	 * a fix point real number with two digits after the radix point ie scaled by
+	 * 10^2.
 	 */
 	protected final int lonProjected;
 
@@ -49,69 +51,83 @@ public class GPSLocation implements Serializable, Cloneable {
 	 * elevation above sea level
 	 */
 	public final int elevation;
-    
-    
-    
-    
-    /**
-     * Returns the projected latitude as integer representing a fixed point real number with 2 decimal places.
-     * @return projected latitude as integer representing a fixed point real number with 2 decimal places
-     */
-    public int getLatitudeProjected1E2(){
-        return latProjected;
-    }
-    
-    /**
-     * Returns the projected latitude as double.
-     * @return projected latitude
-     */
-    public double getLatitudeProjected(){
-        return (double) latProjected / 1E2;
-    }
-    
-    /**
-     * Returns the projected latitude as integer, (2) decimal places are truncated.
-     * @return projected latitude as rounded integer
-     */
-    public int getLatitudeProjectedRounded(){
-        return (int) Math.round(latProjected / 1E2);
-    }
-    
-    /**
-     * Returns the projected longitude as integer representing a fixed point real number with 2 decimal places.
-     * @return projected longitude as integer representing a fixed point real number with 2 decimal places
-     */
-    public int getLongitudeProjected1E2(){
-        return lonProjected;
-    }
-    
-    /**
-     * Returns the projected longitude as double.
-     * @return projected longitude
-     */
-    public double getLongitudeProjected(){
-        return (double) lonProjected / 1E2;
-    }
-    
-    /**
-     * Returns the projected longitude as integer, (2) decimal places are truncated.
-     * @return projected longitude as rounded integer
-     */
-    public int getLongitudeProjectedRounded(){
-        return (int) Math.round(lonProjected / 1E2);
-    }
-            
-    
-            
 
-    /**
-     * Constructor
-     * @param latE6 latitude in WGS84 as integer representing fixed point real number with 6 decimal places
-     * @param lonE6 longitude in WGS84 as integer representing fixed point real number with 6 decimal places
-     * @param latProjected projected latitude as integer representing fixed point real number with 2 decimal places
-     * @param lonProjected projected longitude as integer representing fixed point real number with 2 decimal places
-     * @param elevation elevation
-     */
+	/**
+	 * Returns the projected latitude as integer representing a fixed point real
+	 * number with 2 decimal places.
+	 * 
+	 * @return projected latitude as integer representing a fixed point real number
+	 *         with 2 decimal places
+	 */
+	public int getLatitudeProjected1E2() {
+		return latProjected;
+	}
+
+	/**
+	 * Returns the projected latitude as double.
+	 * 
+	 * @return projected latitude
+	 */
+	public double getLatitudeProjected() {
+		return (double) latProjected / 1E2;
+	}
+
+	/**
+	 * Returns the projected latitude as integer, (2) decimal places are truncated.
+	 * 
+	 * @return projected latitude as rounded integer
+	 */
+	public int getLatitudeProjectedRounded() {
+		return (int) Math.round(latProjected / 1E2);
+	}
+
+	/**
+	 * Returns the projected longitude as integer representing a fixed point real
+	 * number with 2 decimal places.
+	 * 
+	 * @return projected longitude as integer representing a fixed point real number
+	 *         with 2 decimal places
+	 */
+	public int getLongitudeProjected1E2() {
+		return lonProjected;
+	}
+
+	/**
+	 * Returns the projected longitude as double.
+	 * 
+	 * @return projected longitude
+	 */
+	public double getLongitudeProjected() {
+		return (double) lonProjected / 1E2;
+	}
+
+	/**
+	 * Returns the projected longitude as integer, (2) decimal places are truncated.
+	 * 
+	 * @return projected longitude as rounded integer
+	 */
+	public int getLongitudeProjectedRounded() {
+		return (int) Math.round(lonProjected / 1E2);
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param latE6
+	 *            latitude in WGS84 as integer representing fixed point real number
+	 *            with 6 decimal places
+	 * @param lonE6
+	 *            longitude in WGS84 as integer representing fixed point real number
+	 *            with 6 decimal places
+	 * @param latProjected
+	 *            projected latitude as integer representing fixed point real number
+	 *            with 2 decimal places
+	 * @param lonProjected
+	 *            projected longitude as integer representing fixed point real
+	 *            number with 2 decimal places
+	 * @param elevation
+	 *            elevation
+	 */
 	public GPSLocation(int latE6, int lonE6, int latProjected, int lonProjected, int elevation) {
 		this.latE6 = latE6;
 		this.lonE6 = lonE6;
@@ -120,42 +136,75 @@ public class GPSLocation implements Serializable, Cloneable {
 		this.elevation = elevation;
 	}
 
-    /**
-     * Constructor with zero elevation.
-     * @param latE6 latitude in WGS84 as integer representing fixed point real number with 6 decimal places
-     * @param lonE6 longitude in WGS84 as integer representing fixed point real number with 6 decimal places
-     * @param latProjected projected latitude as integer representing fixed point real number with 2 decimal places
-     * @param lonProjected projected longitude as integer representing fixed point real number with 2 decimal places
-     */
+	/**
+	 * Constructor with zero elevation.
+	 * 
+	 * @param latE6
+	 *            latitude in WGS84 as integer representing fixed point real number
+	 *            with 6 decimal places
+	 * @param lonE6
+	 *            longitude in WGS84 as integer representing fixed point real number
+	 *            with 6 decimal places
+	 * @param latProjected
+	 *            projected latitude as integer representing fixed point real number
+	 *            with 2 decimal places
+	 * @param lonProjected
+	 *            projected longitude as integer representing fixed point real
+	 *            number with 2 decimal places
+	 */
 	public GPSLocation(int latE6, int lonE6, int latProjected, int lonProjected) {
 		this(latE6, lonE6, latProjected, lonProjected, 0);
 	}
 
-    /**
-     * Constructor with latitude and longitude as double.
-     * @param lat latitude in WGS84
-     * @param lon longitude in WGS84
-     * @param latProjected projected latitude as integer representing fixed point real number with 2 decimal places
-     * @param lonProjected projected longitude as integer representing fixed point real number with 2 decimal places
-     * @param elevation elevation
-     */
+	/**
+	 * Constructor with latitude and longitude as double.
+	 * 
+	 * @param lat
+	 *            latitude in WGS84
+	 * @param lon
+	 *            longitude in WGS84
+	 * @param latProjected
+	 *            projected latitude as integer representing fixed point real number
+	 *            with 2 decimal places
+	 * @param lonProjected
+	 *            projected longitude as integer representing fixed point real
+	 *            number with 2 decimal places
+	 * @param elevation
+	 *            elevation
+	 */
 	public GPSLocation(double lat, double lon, int latProjected, int lonProjected, int elevation) {
 		this((int) (lat * 1E6), (int) (lon * 1E6), latProjected, lonProjected, elevation);
 	}
 
-    /**
-     * Constructor with latitude and longitude as double with zero elevation.
-     * @param lat latitude in WGS84
-     * @param lon longitude in WGS84
-     * @param latProjected projected latitude as integer representing fixed point real number with 2 decimal places
-     * @param lonProjected projected longitude as integer representing fixed point real number with 2 decimal places
-     */
+	/**
+	 * Constructor with latitude and longitude as double with zero elevation.
+	 * 
+	 * @param lat
+	 *            latitude in WGS84
+	 * @param lon
+	 *            longitude in WGS84
+	 * @param latProjected
+	 *            projected latitude as integer representing fixed point real number
+	 *            with 2 decimal places
+	 * @param lonProjected
+	 *            projected longitude as integer representing fixed point real
+	 *            number with 2 decimal places
+	 */
 	public GPSLocation(double lat, double lon, int latProjected, int lonProjected) {
 		this(lat, lon, latProjected, lonProjected, 0);
 	}
-    
-    
-    
+
+	public int getLatE6() {
+		return latE6;
+	}
+
+	public int getLonE6() {
+		return lonE6;
+	}
+
+	public int getElevation() {
+		return elevation;
+	}
 
 	@Override
 	protected GPSLocation clone() {

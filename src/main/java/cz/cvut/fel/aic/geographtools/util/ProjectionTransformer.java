@@ -40,6 +40,14 @@ public class ProjectionTransformer implements Serializable {
 		}
 	}
 
+	public int getSourceSrid() {
+		return sourceSrid;
+	}
+
+	public int getTargetSrid() {
+		return targetSrid;
+	}
+
 	private int checkSRID(int srid) {
 		if (srid == 900913) {
 			return 3857;

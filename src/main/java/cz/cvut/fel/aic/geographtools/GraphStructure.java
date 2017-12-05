@@ -119,4 +119,12 @@ public interface GraphStructure<TNode extends Node, TEdge extends Edge> {
 	 */
 	public Collection<TEdge> getAllEdges();
 
+	public default int numberOfNodes(){
+		return getAllNodes().size();
+	}
+
+	public default int numberOfEdges(){
+		return getAllEdges().size();
+	}
+
 }

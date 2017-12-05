@@ -48,4 +48,20 @@ public class Zone<TNode extends Node, TEdge extends Edge> implements Serializabl
 		this.graph = graph;
 		this.boundingBox = boundingBox;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getSrid() {
+		return srid;
+	}
+
+	public GraphStructure<TNode, TEdge> getGraph() {
+		return graph;
+	}
+
+	public BoundingBox getBoundingBox() {
+		return boundingBox;
+	}
 }
