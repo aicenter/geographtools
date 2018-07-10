@@ -111,7 +111,7 @@ public class NearestElementUtil<TElement> implements Serializable {
 	 *
 	 * @return
 	 */
-	public Object[] getKNearestElements(GPSLocation location, int k) {
+	public TElement[] getKNearestElements(GPSLocation location, int k) {
 		if (hasProjectedCoordinates(location)) {
 			return getKNearestElementProjected(getProjectedCoordinate(location), k);
 		} else {
@@ -157,7 +157,7 @@ public class NearestElementUtil<TElement> implements Serializable {
 	 *
 	 * @return
 	 */
-	public Object[] getKNearestElementProjected(Coordinate coordinate, int k) {
+	public TElement[] getKNearestElementProjected(Coordinate coordinate, int k) {
 		return kdTree.nearest(convertCoordinateToDoubleArray(coordinate), k);
 	}
 
@@ -184,7 +184,7 @@ public class NearestElementUtil<TElement> implements Serializable {
 	 *
 	 * @return
 	 */
-	public Object[] getKNearestElement(Coordinate coordinate, int k) {
+	public TElement[] getKNearestElement(Coordinate coordinate, int k) {
 		Coordinate converted = transformer.toProjected(coordinate);
 		return kdTree.nearest(convertCoordinateToDoubleArray(converted), k);
 	}
