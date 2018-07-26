@@ -27,12 +27,12 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
 	 * id of the node, used for referencing, should be [0..(numOfNodes-1)]
 	 */
 	public final int id;
-
+        
 	/**
 	 * id of the node from the data source, mostly corresponds with osm maps id
 	 */
 	public final long sourceId;
-
+        
 	/**
 	 * Constructor using coordinates in WGS84 as integer representing fixed point
 	 * real number with 6 decimal places.
@@ -87,7 +87,7 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
 		this.id = id;
 		this.sourceId = sourceId;
 	}
-
+        
 	/**
 	 * Constructor from existing GPSLocation.
 	 * 
@@ -117,6 +117,10 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
 		return sourceId;
 	}
 
+        public String toWKT() {
+            return "POINT ( " + latE6 + " " + lonE6 + " )";
+        }
+        
 	@Override
 	protected Node clone() {
 		return new Node(id, sourceId, latE6, lonE6, latProjected, lonProjected, elevation);
