@@ -43,7 +43,7 @@ public class StronglyConnectedComponentsFinder {
 		Map<Integer, Set<Integer>> outgoing = new HashMap<>();
 
 		for (Edge edge : graph.getAllEdges()) {
-			addElementToSetInMapValue(outgoing, edge.fromId, edge.toId);
+			addElementToSetInMapValue(outgoing, edge.fromNode.getId(), edge.toNode.getId());
 		}
 
 		return new KosarajuSCCComputer(nodeIds, outgoing).getAllStronglyConnectedComponentsSortedBySize();
@@ -68,7 +68,7 @@ public class StronglyConnectedComponentsFinder {
 		Map<Integer, Set<Integer>> outgoing = new HashMap<>();
 
 		for (Edge edge : edges) {
-			addElementToSetInMapValue(outgoing, edge.fromId, edge.toId);
+			addElementToSetInMapValue(outgoing, edge.fromNode.getId(), edge.toNode.getId());
 		}
 
 		return new KosarajuSCCComputer(nodeIds, outgoing).getAllStronglyConnectedComponentsSortedBySize();
@@ -91,9 +91,9 @@ public class StronglyConnectedComponentsFinder {
 		Map<Integer, Set<Integer>> outgoing = new HashMap<>();
 
 		for (Edge edge : edges) {
-			nodeIds.add(edge.fromId);
-			nodeIds.add(edge.toId);
-			addElementToSetInMapValue(outgoing, edge.fromId, edge.toId);
+			nodeIds.add(edge.fromNode.getId());
+			nodeIds.add(edge.toNode.getId());
+			addElementToSetInMapValue(outgoing, edge.fromNode.getId(), edge.toNode.getId());
 		}
 
 		return new KosarajuSCCComputer(nodeIds, outgoing).getAllStronglyConnectedComponentsSortedBySize();

@@ -135,7 +135,7 @@ public class GPSLocation implements Serializable, Cloneable {
 		this.lonProjected = lonProjected;
 		this.elevation = elevation;
 	}
-
+        
 	/**
 	 * Constructor with zero elevation.
 	 * 
@@ -155,7 +155,7 @@ public class GPSLocation implements Serializable, Cloneable {
 	public GPSLocation(int latE6, int lonE6, int latProjected, int lonProjected) {
 		this(latE6, lonE6, latProjected, lonProjected, 0);
 	}
-
+        
 	/**
 	 * Constructor with latitude and longitude as double.
 	 * 

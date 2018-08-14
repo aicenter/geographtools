@@ -110,7 +110,7 @@ public class GraphBuilder<TNode extends Node, TEdge extends Edge> implements Gra
 	 */
 	public void addEdges(Collection<TEdge> edges) {
 		for (TEdge edge : edges) {
-			if (!containsEdge(edge.fromId, edge.toId)) {
+			if (!containsEdge(edge.fromNode, edge.toNode)) {
 				addEdge(edge);
 			}
 		}
@@ -123,46 +123,46 @@ public class GraphBuilder<TNode extends Node, TEdge extends Edge> implements Gra
 	 */
 	public void addEdge(TEdge edge) { // we may think about "creating edges" inside graph builder because of ids
 
-		assert nodesByNodeId.get(edge.fromId) != null
-				&& nodesByNodeId.get(edge.toId) != null : "Node has to be in graph builder before inserting edge";
+		assert nodesByNodeId.get(edge.fromNode.getId()) != null
+				&& nodesByNodeId.get(edge.toNode.getId()) != null : "Node has to be in graph builder before inserting edge";
 
-		EdgeId edgeId = new EdgeId(edge.fromId, edge.toId);
+		EdgeId edgeId = new EdgeId(edge.fromNode.getId(), edge.toNode.getId());
 
 		assert !edgeByFromToNodeIds.containsKey(edgeId) : "Edge has not to exist yet";
 
-		List<TEdge> outcomingEdgesFromNode = nodeOutcomingEdges.get(edge.fromId);
-		List<TEdge> incomingEdgesToNode = nodeIncomingEdges.get(edge.toId);
+		List<TEdge> outcomingEdgesFromNode = nodeOutcomingEdges.get(edge.fromNode.getId());
+		List<TEdge> incomingEdgesToNode = nodeIncomingEdges.get(edge.toNode.getId());
 
 		outcomingEdgesFromNode.add(edge);
 		incomingEdgesToNode.add(edge);
 
 		edgeByFromToNodeIds.put(edgeId, edge);
-		nodeOutcomingEdges.put(edge.fromId, outcomingEdgesFromNode);
-		nodeIncomingEdges.put(edge.toId, incomingEdgesToNode);
+		nodeOutcomingEdges.put(edge.fromNode.getId(), outcomingEdgesFromNode);
+		nodeIncomingEdges.put(edge.toNode.getId(), incomingEdgesToNode);
 	}
-
+        
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean containsEdge(TEdge edge) {
-		return containsEdge(edge.fromId, edge.toId);
+		return containsEdge(edge.fromNode, edge.toNode);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean containsEdge(int fromId, int toId) {
-		return getEdge(fromId, toId) != null;
+	public boolean containsEdge(Node fromNode, Node toNode) {
+		return getEdge(fromNode, toNode) != null;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public TEdge getEdge(int fromId, int toId) {
-		EdgeId edgeId = new EdgeId(fromId, toId);
+	public TEdge getEdge(Node fromNode, Node toNode) {
+		EdgeId edgeId = new EdgeId(fromNode.getId(), toNode.getId());
 		return edgeByFromToNodeIds.get(edgeId);
 	}
 
@@ -293,13 +293,13 @@ public class GraphBuilder<TNode extends Node, TEdge extends Edge> implements Gra
 		return new Graph<>(nodesByNodeIdList, outgoingPositions, outgoingEdges, incomingPositions, incomingEdges);
 
 	}
-
+        
 	private class EdgeId {
 		private static final long serialVersionUID = 4716865102995519001L;
-
+                
 		public final long fromNodeId;
 		public final long toNodeId;
-
+                
 		public EdgeId(long fromNodeId, long toNodeId) {
 			super();
 			this.fromNodeId = fromNodeId;

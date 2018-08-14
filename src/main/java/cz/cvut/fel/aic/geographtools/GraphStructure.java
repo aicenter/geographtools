@@ -53,25 +53,25 @@ public interface GraphStructure<TNode extends Node, TEdge extends Edge> {
 	 * @return <code>True</code> when the graph contains given edge, otherwise <code>False</code>
 	 */
 	public boolean containsEdge(TEdge edge);
-
-	/**
-	 * Returns true when the graph contains edge with given source and goal node ids
+        
+        /**
+	 * Returns true when the graph contains edge with given source and goal node
 	 *
-	 * @param fromId <code>int</code> id of the source node
-	 * @param toId   <code>int</code> id of the goal node
-	 * @return <code>True</code> when the graph contains edge with given source and goal node ids,
+	 * @param fromNode <code>Node</code> source node
+	 * @param toNode   <code>Node</code> goal node
+	 * @return <code>True</code> when the graph contains edge with given source and goal node,
 	 * otherwise <code>False</code>
 	 */
-	public boolean containsEdge(int fromId, int toId);
+	public boolean containsEdge(Node fromNode, Node toNode);
 
 	/**
-	 * Returns edge based on its source and goal node ids.
+	 * Returns edge based on its source and goal node.
 	 *
-	 * @param fromNodeId id of the source node
-	 * @param toNodeId   id of the goal node
+	 * @param fromNode source node
+	 * @param toNode goal node
 	 * @return <code>TEdge</code> connecting nodes
 	 */
-	public TEdge getEdge(int fromNodeId, int toNodeId);
+	public TEdge getEdge(Node fromNode, Node toNode);
 
 	/**
 	 * Returns list of edges incoming to node.

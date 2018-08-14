@@ -143,25 +143,25 @@ public class Graph<TNode extends Node, TEdge extends Edge> implements GraphStruc
 
 	@Override
 	public boolean containsEdge(TEdge edge) {
-		return containsEdge(edge.fromId, edge.toId);
+		return containsEdge(edge.fromNode, edge.toNode);
 	}
-
+        
 	@Override
-	public boolean containsEdge(int fromId, int toId) {
-		return getEdge(fromId, toId) != null;
+	public boolean containsEdge(Node fromNode, Node toNode) {
+		return getEdge(fromNode, toNode) != null;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public TEdge getEdge(int fromNodeId, int toNodeId) {
+	public TEdge getEdge(Node fromNode, Node toNode) {
 
 		// scan edges from outgoingPositions[fromNodeId] to (outgoingPositions[fromNodeId+1]-1)
 		// sequential approach still faster than map, operation not used very often
 
-		for (int j = outgoingPositions[fromNodeId]; j < (outgoingPositions[fromNodeId + 1]); j++) {
-			if (outgoingEdges.get(j).toId == toNodeId) {
+		for (int j = outgoingPositions[fromNode.getId()]; j < (outgoingPositions[fromNode.getId() + 1]); j++) {
+			if (outgoingEdges.get(j).toNode.getId() == toNode.getId()) {
 				return outgoingEdges.get(j);
 			}
 		}

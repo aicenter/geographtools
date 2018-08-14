@@ -19,19 +19,19 @@ package cz.cvut.fel.aic.geographtools;
 
 import java.io.Serializable;
 
-public class Edge implements Serializable, Cloneable {
+public class Edge<N extends Node> implements Serializable, Cloneable {
 
 	private static final long serialVersionUID = -4751369758703721049L;
 
 	/**
-	 * id of the tail node
+	 * tail node
 	 */
-	public final int fromId;
+	public final N fromNode;
 
 	/**
-	 * id of the goal node
+	 * goal node
 	 */
-	public final int toId;
+	public final N toNode;
 
 	/**
 	 * length of the edge in meters
@@ -44,23 +44,28 @@ public class Edge implements Serializable, Cloneable {
     
     
 
-	public Edge(int fromId, int toId, int length) {
-		this.fromId = fromId;
-		this.toId = toId;
+	public Edge(N fromNode, N toNode, int length) {
+		this.fromNode = fromNode;
+		this.toNode = toNode;
 		this.length = length;
 	}
 
-	public int getFromId() {
-		return fromId;
+	public Node getFromNode() {
+		return fromNode;
 	}
 
-	public int getToId() {
-		return toId;
+	public Node getToNode() {
+		return toNode;
 	}
 
+        
+        public String toWKT() {
+                return "LINESTRING (  )";
+        }
+        
 	@Override
 	protected Edge clone() {
-		return new Edge(this.fromId, this.toId, this.length);
+		return new Edge(this.fromNode, this.toNode, this.length);
 	}
 
 	@Override
@@ -72,9 +77,9 @@ public class Edge implements Serializable, Cloneable {
 
 		Edge edge = (Edge) o;
 
-		if (fromId != edge.fromId)
+		if (!fromNode.equals(edge.fromNode))
 			return false;
-		if (toId != edge.toId)
+		if (!toNode.equals(edge.toNode))
 			return false;
 
 		return true;
@@ -82,13 +87,13 @@ public class Edge implements Serializable, Cloneable {
 
 	@Override
 	public int hashCode() {
-		int result = fromId;
-		result = 31 * result + toId;
+		int result = fromNode.getId();
+		result = 31 * result + toNode.getId();
 		return result;
 	}
 
 	@Override
 	public String toString() {
-		return "(" + fromId + "," + toId + ')';
+		return "(" + fromNode.getId() + "," + toNode.getId() + ')';
 	}
 }
