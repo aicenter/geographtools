@@ -36,14 +36,14 @@ public class GraphTest {
 
 	@Before
 	public void setUp() throws Exception {
-		Node n0 = new Node(0, 10, 0, 0, 0, 0, 0);
-		Node n1 = new Node(1, 11, 0, 0, 0, 0, 0);
-		Node n2 = new Node(2, 12, 0, 0, 0, 0, 0);
-		Node n3 = new Node(3, 13, 0, 0, 0, 0, 0);
-		Node n4 = new Node(4, 14, 0, 0, 0, 0, 0);
-		Node n5 = new Node(5, 15, 0, 0, 0, 0, 0);
-		Node n6 = new Node(6, 16, 0, 0, 0, 0, 0);
-		Node n7 = new Node(7, 17, 0, 0, 0, 0, 0);
+		Node n0 = new Node(0, 10, 50352188, 14412064, 0, 0, 0);
+		Node n1 = new Node(1, 11, 50595995, 14536064, 0, 0, 0);
+		Node n2 = new Node(2, 12, 50998324, 14382655, 0, 0, 0);
+		Node n3 = new Node(3, 13, 49995863, 14063664, 0, 0, 0);
+		Node n4 = new Node(4, 14, 49775462, 14732555, 0, 0, 0);
+		Node n5 = new Node(5, 15, 50446846, 14565874, 0, 0, 0);
+		Node n6 = new Node(6, 16, 50465864, 14987525, 0, 0, 0);
+		Node n7 = new Node(7, 17, 50465789, 14579844, 0, 0, 0);
 
 		Edge e1 = new Edge(n1, n2, 100);
 		Edge e2 = new Edge(n2, n3, 100);
@@ -129,5 +129,18 @@ public class GraphTest {
 	public void testGraphEquals() throws Exception {
 		Assert.assertTrue(graph.equals(builder.dumpCurrentGraph()));
 	}
+        
+        @Test
+        public void testGraphWkt() throws Exception {
+            System.out.println(graph.toWKT());
+            
+            for (Edge edge : graph.getAllEdges()) {
+                System.out.println(edge.toWKT());
+            }
+            
+            for (Node node : graph.getAllNodes()) {
+                System.out.println(node.toWKT());
+            }
+        }
 
 }
