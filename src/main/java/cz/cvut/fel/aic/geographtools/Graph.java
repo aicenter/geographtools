@@ -252,7 +252,7 @@ public class Graph<TNode extends Node, TEdge extends Edge> implements GraphStruc
 	public String toString() {
 		return "Graph [#nodes=" + numberOfNodes + ", #edges=" + numberOfEdges + "]";
 	}
-        
+          
         public String toWKT() {
                 String wkt = "MULTILINESTRING (";
                 

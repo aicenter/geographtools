@@ -116,7 +116,7 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
 	public long getSourceId() {
 		return sourceId;
 	}
-
+  
         public String toWKT() {
             return "POINT ( " + (lonE6 / 1E6 ) + " " + (latE6 / 1E6 ) + " )";
         }

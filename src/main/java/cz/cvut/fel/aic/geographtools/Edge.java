@@ -43,7 +43,7 @@ public class Edge<N extends Node> implements Serializable, Cloneable {
     }
     
     
-
+  
 	public Edge(N fromNode, N toNode, int length) {
 		this.fromNode = fromNode;
 		this.toNode = toNode;
