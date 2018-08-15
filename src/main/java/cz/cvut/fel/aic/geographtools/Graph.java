@@ -252,5 +252,16 @@ public class Graph<TNode extends Node, TEdge extends Edge> implements GraphStruc
 	public String toString() {
 		return "Graph [#nodes=" + numberOfNodes + ", #edges=" + numberOfEdges + "]";
 	}
-
+        
+        public String toWKT() {
+                String wkt = "MULTILINESTRING (";
+                Collection<TEdge> edges = getAllEdges();
+                for (TEdge edge : edges) {
+                    String wktEdge = new String();
+                    wkt += " ( " + edge.fromNode.latE6 + " " + edge.fromNode.lonE6 + ", " + edge.toNode.latE6 + " " + edge.toNode.lonE6 + " ),";
+                }
+                wkt = wkt.substring(0, wkt.length() - 1);
+                wkt += " )";
+                return wkt;
+        }
 }

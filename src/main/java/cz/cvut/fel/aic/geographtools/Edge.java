@@ -58,10 +58,11 @@ public class Edge<N extends Node> implements Serializable, Cloneable {
 		return toNode;
 	}
 
-        
+
         public String toWKT() {
-                return "LINESTRING (  )";
-        }
+            String wkt = "LINESTRING (" + fromNode.latE6+ " " + fromNode.lonE6 + ", " + toNode.latE6 + " " + toNode.lonE6 + " )";
+            return wkt;
+        }        
         
 	@Override
 	protected Edge clone() {
