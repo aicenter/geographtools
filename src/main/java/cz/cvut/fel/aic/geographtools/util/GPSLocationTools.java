@@ -36,6 +36,10 @@ public class GPSLocationTools {
         Coordinate coordinate = new Coordinate(lon, lat);
         Coordinate projectedCoordinate = transformer.toProjected(coordinate);
 
+		/**
+		 * 1E2 raises the resolution of projected coordinates to cm (0.01 m). So the difference between coordinates
+		 * [0,0] and [0,100] is 1 m. The is true if the projected system is metric.
+		 **/
         int projectedLatitude = (int) Math.round(projectedCoordinate.y * 1E2);
         int projectedLongitude = (int) Math.round(projectedCoordinate.x * 1E2);
 

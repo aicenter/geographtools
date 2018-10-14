@@ -18,6 +18,7 @@
 package cz.cvut.fel.aic.geographtools;
 
 import java.io.Serializable;
+import cz.cvut.fel.aic.geographtools.util.Transformer;
 
 public class Node extends GPSLocation implements Serializable, Cloneable {
 
@@ -33,6 +34,9 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
 	 */
 	public final long sourceId;
         
+	
+	
+	
 	/**
 	 * Constructor using coordinates in WGS84 as integer representing fixed point
 	 * real number with 6 decimal places.
@@ -103,7 +107,44 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
 		this.id = id;
 		this.sourceId = sourceId;
 	}
+	
+	/**
+	 * Constructor from coordinates and projection. Projected coordinates are computed from projection.
+	 * @param id Node internal id - generated.
+	 * @param sourceId Node id inferred from the source data
+	 * @param latitude latitude in WGS84
+	 * @param longitude longitude in WGS84
+	 * @param elevation elevation
+	 * @param transformer projection definition
+	 */
+	public Node(int id, long sourceId, double latitude, double longitude, int elevation, 
+			Transformer transformer){
+		super(latitude, longitude, elevation, transformer);
+		this.id = id;
+		this.sourceId = sourceId;
+	}
+	
+	/**
+	 * Constructor from projected coordinates and projection. GPS coordinates are computed from projection.
+	 * @param id Node internal id - generated.
+	 * @param sourceId Node id inferred from the source data
+	 * @param projectedLatitude projected latitude as integer representing fixed point real number
+	 *            with 2 decimal places
+	 * @param projectedLongitude projected longitude as integer representing fixed point real
+	 *            number with 2 decimal places
+	 * @param elevation elevation
+	 * @param transformer projection definition
+	 */
+	public Node(int id, long sourceId, int projectedLatitude, int projectedLongitude, int elevation, 
+			Transformer transformer){
+		super(projectedLatitude, projectedLongitude, elevation, transformer);
+		this.id = id;
+		this.sourceId = sourceId;
+	}
+			
 
+	
+	
 	public int getId() {
 		return id;
 	}

@@ -17,6 +17,8 @@
 
 package cz.cvut.fel.aic.geographtools;
 
+import com.vividsolutions.jts.geom.Coordinate;
+import cz.cvut.fel.aic.geographtools.util.Transformer;
 import java.io.Serializable;
 
 public class GPSLocation implements Serializable, Cloneable {
@@ -51,6 +53,48 @@ public class GPSLocation implements Serializable, Cloneable {
 	 * elevation above sea level
 	 */
 	public final int elevation;
+	
+	
+	
+	
+	/**
+	 * Integer getter for latitude.
+	 * @return latitude in E6 format, e.g. 42345762
+	 */
+	public int getLatE6() {
+		return latE6;
+	}
+
+	/**
+	 * Integer getter for longitude.
+	 * @return longitude in E6 format, e.g. 42345762
+	 */
+	public int getLonE6() {
+		return lonE6;
+	}
+	
+	/**
+	 * Float getter for latitude.
+	 * @return latitude as float number, e. g. 42.345762
+	 */
+	public double getLatitude() {
+		return ((double) latE6 / 1E6);
+	}
+
+	/**
+	 * Float getter for longitude.
+	 * @return longitude as float number, e. g. 42.345762
+	 */
+	public double getLongitude() {
+		return ((double) lonE6 / 1E6);
+	}
+
+	/**
+	 * @return elevation above sea level.
+	 */
+	public int getElevation() {
+		return elevation;
+	}
 
 	/**
 	 * Returns the projected latitude as integer representing a fixed point real
@@ -110,6 +154,9 @@ public class GPSLocation implements Serializable, Cloneable {
 		return (int) Math.round(lonProjected / 1E2);
 	}
 
+	
+	
+	
 	/**
 	 * Constructor
 	 * 
@@ -194,29 +241,55 @@ public class GPSLocation implements Serializable, Cloneable {
 		this(lat, lon, latProjected, lonProjected, 0);
 	}
 
-	public int getLatE6() {
-		return latE6;
-	}
+	/**
+	 * Constructor for creating GPSLocation using coordinates and projection. Projected coordinates are 
+	 * computed from projection.
+	 * @param latitude latitude in WGS84
+	 * @param longitude longitude in WGS84
+	 * @param elevation elevation
+	 * @param transformer projection definition
+	 */
+	public GPSLocation(double latitude, double longitude, int elevation, Transformer transformer){
+		latE6 = (int) Math.round(latitude * 1E6);
+		lonE6 = (int) Math.round(longitude * 1E6);
+		this.elevation = elevation;
+		Coordinate coordinate = new Coordinate(longitude, latitude);
+        Coordinate projectedCoordinate = transformer.toProjected(coordinate);
 
-	public int getLonE6() {
-		return lonE6;
+		/**
+		 * 1E2 raises the resolution of projected coordinates to cm (0.01 m). So the difference between coordinates
+		 * [0,0] and [0,100] is 1 m. The is true if the projected system is metric.
+		 **/
+        latProjected = (int) Math.round(projectedCoordinate.y * 1E2);
+        lonProjected = (int) Math.round(projectedCoordinate.x * 1E2);
 	}
-
-	public int getElevation() {
-		return elevation;
+	
+	/**
+	 * Constructor for creating GPSLocation using projected coordinates and projection. GPS coordinates are 
+	 * computed from projection.
+	 * @param projectedLatitude projected latitude as integer representing fixed point real number
+	 *            with 2 decimal places
+	 * @param projectedLongitude projected longitude as integer representing fixed point real
+	 *            number with 2 decimal places
+	 * @param elevation elevation
+	 * @param transformer projection definition
+	 */
+	public GPSLocation(int projectedLatitude, int projectedLongitude, int elevation, Transformer transformer){
+		latProjected = projectedLatitude;
+		lonProjected = projectedLongitude;
+		this.elevation = elevation;
+		Coordinate projectedCoordinate = new Coordinate(projectedLongitude / 1E2, projectedLatitude / 1E2);
+		Coordinate coordinate = transformer.toReal(projectedCoordinate);
+		latE6 = (int) Math.round(coordinate.y * 1E6);
+		lonE6 = (int) Math.round(coordinate.x * 1E6);
 	}
-
+	
+		
+	
+	
 	@Override
 	protected GPSLocation clone() {
 		return new GPSLocation(latE6, lonE6, latProjected, lonProjected, elevation);
-	}
-
-	public double getLatitude() {
-		return ((double) latE6 / 1E6);
-	}
-
-	public double getLongitude() {
-		return ((double) lonE6 / 1E6);
 	}
 
 	@Override
