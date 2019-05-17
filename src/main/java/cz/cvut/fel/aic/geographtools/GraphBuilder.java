@@ -140,7 +140,7 @@ public class GraphBuilder<TNode extends Node, TEdge extends Edge> implements Gra
 		nodeOutcomingEdges.put(edge.fromNode.getId(), outcomingEdgesFromNode);
 		nodeIncomingEdges.put(edge.toNode.getId(), incomingEdgesToNode);
 	}
-        
+		
 	/**
 	 * {@inheritDoc}
 	 */
@@ -293,13 +293,13 @@ public class GraphBuilder<TNode extends Node, TEdge extends Edge> implements Gra
 		return new Graph<>(nodesByNodeIdList, outgoingPositions, outgoingEdges, incomingPositions, incomingEdges);
 
 	}
-        
+		
 	private class EdgeId {
 		private static final long serialVersionUID = 4716865102995519001L;
-                
+				
 		public final long fromNodeId;
 		public final long toNodeId;
-                
+				
 		public EdgeId(long fromNodeId, long toNodeId) {
 			super();
 			this.fromNodeId = fromNodeId;

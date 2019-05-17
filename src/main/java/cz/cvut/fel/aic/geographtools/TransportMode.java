@@ -23,9 +23,9 @@ package cz.cvut.fel.aic.geographtools;
  * @author fido
  */
 public enum TransportMode {
-    CAR,
-    WALK,
-    TAXI,
-    MOTORCYCLE,
-    BIKE
+	CAR,
+	WALK,
+	TAXI,
+	MOTORCYCLE,
+	BIKE
 }

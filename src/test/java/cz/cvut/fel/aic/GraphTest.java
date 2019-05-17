@@ -129,18 +129,18 @@ public class GraphTest {
 	public void testGraphEquals() throws Exception {
 		Assert.assertTrue(graph.equals(builder.dumpCurrentGraph()));
 	}
-        
-        @Test
-        public void testGraphWkt() throws Exception {
-            System.out.println(graph.toWKT());
-            
-            for (Edge edge : graph.getAllEdges()) {
-                System.out.println(edge.toWKT());
-            }
-            
-            for (Node node : graph.getAllNodes()) {
-                System.out.println(node.toWKT());
-            }
-        }
+		
+		@Test
+		public void testGraphWkt() throws Exception {
+			System.out.println(graph.toWKT());
+			
+			for (Edge edge : graph.getAllEdges()) {
+				System.out.println(edge.toWKT());
+			}
+			
+			for (Node node : graph.getAllNodes()) {
+				System.out.println(node.toWKT());
+			}
+		}
 
 }

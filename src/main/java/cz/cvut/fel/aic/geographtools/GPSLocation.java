@@ -101,7 +101,7 @@ public class GPSLocation implements Serializable, Cloneable {
 	 * number with 2 decimal places.
 	 * 
 	 * @return projected latitude as integer representing a fixed point real number
-	 *         with 2 decimal places
+	 *		 with 2 decimal places
 	 */
 	public int getLatitudeProjected1E2() {
 		return latProjected;
@@ -130,7 +130,7 @@ public class GPSLocation implements Serializable, Cloneable {
 	 * number with 2 decimal places.
 	 * 
 	 * @return projected longitude as integer representing a fixed point real number
-	 *         with 2 decimal places
+	 *		 with 2 decimal places
 	 */
 	public int getLongitudeProjected1E2() {
 		return lonProjected;
@@ -161,19 +161,19 @@ public class GPSLocation implements Serializable, Cloneable {
 	 * Constructor
 	 * 
 	 * @param latE6
-	 *            latitude in WGS84 as integer representing fixed point real number
-	 *            with 6 decimal places
+	 *			latitude in WGS84 as integer representing fixed point real number
+	 *			with 6 decimal places
 	 * @param lonE6
-	 *            longitude in WGS84 as integer representing fixed point real number
-	 *            with 6 decimal places
+	 *			longitude in WGS84 as integer representing fixed point real number
+	 *			with 6 decimal places
 	 * @param latProjected
-	 *            projected latitude as integer representing fixed point real number
-	 *            with 2 decimal places
+	 *			projected latitude as integer representing fixed point real number
+	 *			with 2 decimal places
 	 * @param lonProjected
-	 *            projected longitude as integer representing fixed point real
-	 *            number with 2 decimal places
+	 *			projected longitude as integer representing fixed point real
+	 *			number with 2 decimal places
 	 * @param elevation
-	 *            elevation
+	 *			elevation
 	 */
 	public GPSLocation(int latE6, int lonE6, int latProjected, int lonProjected, int elevation) {
 		this.latE6 = latE6;
@@ -182,42 +182,42 @@ public class GPSLocation implements Serializable, Cloneable {
 		this.lonProjected = lonProjected;
 		this.elevation = elevation;
 	}
-        
+		
 	/**
 	 * Constructor with zero elevation.
 	 * 
 	 * @param latE6
-	 *            latitude in WGS84 as integer representing fixed point real number
-	 *            with 6 decimal places
+	 *			latitude in WGS84 as integer representing fixed point real number
+	 *			with 6 decimal places
 	 * @param lonE6
-	 *            longitude in WGS84 as integer representing fixed point real number
-	 *            with 6 decimal places
+	 *			longitude in WGS84 as integer representing fixed point real number
+	 *			with 6 decimal places
 	 * @param latProjected
-	 *            projected latitude as integer representing fixed point real number
-	 *            with 2 decimal places
+	 *			projected latitude as integer representing fixed point real number
+	 *			with 2 decimal places
 	 * @param lonProjected
-	 *            projected longitude as integer representing fixed point real
-	 *            number with 2 decimal places
+	 *			projected longitude as integer representing fixed point real
+	 *			number with 2 decimal places
 	 */
 	public GPSLocation(int latE6, int lonE6, int latProjected, int lonProjected) {
 		this(latE6, lonE6, latProjected, lonProjected, 0);
 	}
-        
+		
 	/**
 	 * Constructor with latitude and longitude as double.
 	 * 
 	 * @param lat
-	 *            latitude in WGS84
+	 *			latitude in WGS84
 	 * @param lon
-	 *            longitude in WGS84
+	 *			longitude in WGS84
 	 * @param latProjected
-	 *            projected latitude as integer representing fixed point real number
-	 *            with 2 decimal places
+	 *			projected latitude as integer representing fixed point real number
+	 *			with 2 decimal places
 	 * @param lonProjected
-	 *            projected longitude as integer representing fixed point real
-	 *            number with 2 decimal places
+	 *			projected longitude as integer representing fixed point real
+	 *			number with 2 decimal places
 	 * @param elevation
-	 *            elevation
+	 *			elevation
 	 */
 	public GPSLocation(double lat, double lon, int latProjected, int lonProjected, int elevation) {
 		this((int) (lat * 1E6), (int) (lon * 1E6), latProjected, lonProjected, elevation);
@@ -227,15 +227,15 @@ public class GPSLocation implements Serializable, Cloneable {
 	 * Constructor with latitude and longitude as double with zero elevation.
 	 * 
 	 * @param lat
-	 *            latitude in WGS84
+	 *			latitude in WGS84
 	 * @param lon
-	 *            longitude in WGS84
+	 *			longitude in WGS84
 	 * @param latProjected
-	 *            projected latitude as integer representing fixed point real number
-	 *            with 2 decimal places
+	 *			projected latitude as integer representing fixed point real number
+	 *			with 2 decimal places
 	 * @param lonProjected
-	 *            projected longitude as integer representing fixed point real
-	 *            number with 2 decimal places
+	 *			projected longitude as integer representing fixed point real
+	 *			number with 2 decimal places
 	 */
 	public GPSLocation(double lat, double lon, int latProjected, int lonProjected) {
 		this(lat, lon, latProjected, lonProjected, 0);
@@ -254,23 +254,23 @@ public class GPSLocation implements Serializable, Cloneable {
 		lonE6 = (int) Math.round(longitude * 1E6);
 		this.elevation = elevation;
 		Coordinate coordinate = new Coordinate(longitude, latitude);
-        Coordinate projectedCoordinate = transformer.toProjected(coordinate);
+		Coordinate projectedCoordinate = transformer.toProjected(coordinate);
 
 		/**
 		 * 1E2 raises the resolution of projected coordinates to cm (0.01 m). So the difference between coordinates
 		 * [0,0] and [0,100] is 1 m. The is true if the projected system is metric.
 		 **/
-        latProjected = (int) Math.round(projectedCoordinate.y * 1E2);
-        lonProjected = (int) Math.round(projectedCoordinate.x * 1E2);
+		latProjected = (int) Math.round(projectedCoordinate.y * 1E2);
+		lonProjected = (int) Math.round(projectedCoordinate.x * 1E2);
 	}
 	
 	/**
 	 * Constructor for creating GPSLocation using projected coordinates and projection. GPS coordinates are 
 	 * computed from projection.
 	 * @param projectedLatitude projected latitude as integer representing fixed point real number
-	 *            with 2 decimal places
+	 *			with 2 decimal places
 	 * @param projectedLongitude projected longitude as integer representing fixed point real
-	 *            number with 2 decimal places
+	 *			number with 2 decimal places
 	 * @param elevation elevation
 	 * @param transformer projection definition
 	 */

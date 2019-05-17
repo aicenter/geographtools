@@ -213,6 +213,6 @@ public class NearestElementUtil<TElement> implements Serializable {
 	public static interface SerializableIntFunction<T> extends IntFunction<T>, Serializable {
 
 	}
-    
-    
+	
+	
 }

@@ -14,11 +14,11 @@ public class SCCTest {
 
 	@Test
 	public void testSCCTriangle() {
-            
-                Node n1 = new Node(1, 1, 0, 0, 0, 0, 0);
+			
+				Node n1 = new Node(1, 1, 0, 0, 0, 0, 0);
 		Node n2 = new Node(2, 1, 0, 0, 0, 0, 0);
 		Node n3 = new Node(3, 1, 0, 0, 0, 0, 0);
-            
+			
 		Edge e1 = new Edge(n1, n2, 100);
 		Edge e2 = new Edge(n2, n3, 100);
 		Edge e3 = new Edge(n3, n1, 100);

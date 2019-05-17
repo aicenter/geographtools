@@ -145,7 +145,7 @@ public class Graph<TNode extends Node, TEdge extends Edge> implements GraphStruc
 	public boolean containsEdge(TEdge edge) {
 		return containsEdge(edge.fromNode, edge.toNode);
 	}
-        
+		
 	@Override
 	public boolean containsEdge(Node fromNode, Node toNode) {
 		return getEdge(fromNode, toNode) != null;
@@ -252,17 +252,17 @@ public class Graph<TNode extends Node, TEdge extends Edge> implements GraphStruc
 	public String toString() {
 		return "Graph [#nodes=" + numberOfNodes + ", #edges=" + numberOfEdges + "]";
 	}
-          
-        public String toWKT() {
-                String wkt = "MULTILINESTRING (";
-                
-                Collection<TEdge> edges = getAllEdges();
-                for (TEdge edge : edges) {
-                    wkt += " ( " + (edge.fromNode.lonE6 / 1E6 ) + " " + (edge.fromNode.latE6 / 1E6 ) 
-                            + ", " + (edge.toNode.lonE6 / 1E6 ) + " " + (edge.toNode.latE6 / 1E6 ) + " ),";
-                }
-                wkt = wkt.substring(0, wkt.length() - 1);
-                wkt += " )";
-                return wkt;
-        }
+		  
+		public String toWKT() {
+				String wkt = "MULTILINESTRING (";
+				
+				Collection<TEdge> edges = getAllEdges();
+				for (TEdge edge : edges) {
+					wkt += " ( " + (edge.fromNode.lonE6 / 1E6 ) + " " + (edge.fromNode.latE6 / 1E6 ) 
+							+ ", " + (edge.toNode.lonE6 / 1E6 ) + " " + (edge.toNode.latE6 / 1E6 ) + " ),";
+				}
+				wkt = wkt.substring(0, wkt.length() - 1);
+				wkt += " )";
+				return wkt;
+		}
 }

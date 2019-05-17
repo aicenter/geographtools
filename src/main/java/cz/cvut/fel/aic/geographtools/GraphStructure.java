@@ -53,8 +53,8 @@ public interface GraphStructure<TNode extends Node, TEdge extends Edge> {
 	 * @return <code>True</code> when the graph contains given edge, otherwise <code>False</code>
 	 */
 	public boolean containsEdge(TEdge edge);
-        
-        /**
+		
+		/**
 	 * Returns true when the graph contains edge with given source and goal node
 	 *
 	 * @param fromNode <code>Node</code> source node

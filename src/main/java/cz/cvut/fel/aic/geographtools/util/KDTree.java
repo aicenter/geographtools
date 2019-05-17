@@ -187,12 +187,12 @@ public class KDTree<V> {
 
 		} else {
 
-            /*
+			/*
 			 * if two elements with the same key are entered, that to do
-             * 0 - throw an exception
-             * 1 - use new
-             * -1 - use old;
-             */
+			 * 0 - throw an exception
+			 * 1 - use new
+			 * -1 - use old;
+			 */
 			switch (conflictResolverMode) {
 				case THROW_EXCEPTION:
 					throw new IllegalArgumentException(

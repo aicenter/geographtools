@@ -28,12 +28,12 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
 	 * id of the node, used for referencing, should be [0..(numOfNodes-1)]
 	 */
 	public final int id;
-        
+		
 	/**
 	 * id of the node from the data source, mostly corresponds with osm maps id
 	 */
 	public final long sourceId;
-        
+		
 	
 	
 	
@@ -42,23 +42,23 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
 	 * real number with 6 decimal places.
 	 * 
 	 * @param id
-	 *            Node internal id - generated.
+	 *			Node internal id - generated.
 	 * @param sourceId
-	 *            Node id inferred from the source data
+	 *			Node id inferred from the source data
 	 * @param latE6
-	 *            latitude in WGS84 as integer representing fixed point real number
-	 *            with 6 decimal places
+	 *			latitude in WGS84 as integer representing fixed point real number
+	 *			with 6 decimal places
 	 * @param lonE6
-	 *            longitude in WGS84 as integer representing fixed point real number
-	 *            with 6 decimal places
+	 *			longitude in WGS84 as integer representing fixed point real number
+	 *			with 6 decimal places
 	 * @param latProjected
-	 *            projected latitude as integer representing fixed point real number
-	 *            with 2 decimal places
+	 *			projected latitude as integer representing fixed point real number
+	 *			with 2 decimal places
 	 * @param lonProjected
-	 *            projected longitude as integer representing fixed point real
-	 *            number with 2 decimal places
+	 *			projected longitude as integer representing fixed point real
+	 *			number with 2 decimal places
 	 * @param elevation
-	 *            elevation
+	 *			elevation
 	 */
 	public Node(int id, long sourceId, int latE6, int lonE6, int latProjected, int lonProjected, int elevation) {
 		super(latE6, lonE6, latProjected, lonProjected, elevation);
@@ -70,37 +70,37 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
 	 * Constructor
 	 * 
 	 * @param id
-	 *            Node internal id - generated.
+	 *			Node internal id - generated.
 	 * @param sourceId
-	 *            Node id inferred from the source data
+	 *			Node id inferred from the source data
 	 * @param lat
-	 *            latitude in WGS84
+	 *			latitude in WGS84
 	 * @param lon
-	 *            longitude in WGS84
+	 *			longitude in WGS84
 	 * @param latProjected
-	 *            projected latitude as integer representing fixed point real number
-	 *            with 2 decimal places
+	 *			projected latitude as integer representing fixed point real number
+	 *			with 2 decimal places
 	 * @param lonProjected
-	 *            projected longitude as integer representing fixed point real
-	 *            number with 2 decimal places
+	 *			projected longitude as integer representing fixed point real
+	 *			number with 2 decimal places
 	 * @param elevation
-	 *            elevation
+	 *			elevation
 	 */
 	public Node(int id, long sourceId, double lat, double lon, int latProjected, int lonProjected, int elevation) {
 		super(lat, lon, latProjected, lonProjected, elevation);
 		this.id = id;
 		this.sourceId = sourceId;
 	}
-        
+		
 	/**
 	 * Constructor from existing GPSLocation.
 	 * 
 	 * @param id
-	 *            Node internal id - generated.
+	 *			Node internal id - generated.
 	 * @param sourceId
-	 *            Node id inferred from the source data
+	 *			Node id inferred from the source data
 	 * @param location
-	 *            GPS location.
+	 *			GPS location.
 	 */
 	public Node(int id, long sourceId, GPSLocation location) {
 		super(location.latE6, location.lonE6, location.latProjected, location.lonProjected, location.elevation);
@@ -129,9 +129,9 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
 	 * @param id Node internal id - generated.
 	 * @param sourceId Node id inferred from the source data
 	 * @param projectedLatitude projected latitude as integer representing fixed point real number
-	 *            with 2 decimal places
+	 *			with 2 decimal places
 	 * @param projectedLongitude projected longitude as integer representing fixed point real
-	 *            number with 2 decimal places
+	 *			number with 2 decimal places
 	 * @param elevation elevation
 	 * @param transformer projection definition
 	 */
@@ -158,10 +158,10 @@ public class Node extends GPSLocation implements Serializable, Cloneable {
 		return sourceId;
 	}
   
-        public String toWKT() {
-            return "POINT ( " + (lonE6 / 1E6 ) + " " + (latE6 / 1E6 ) + " )";
-        }
-        
+		public String toWKT() {
+			return "POINT ( " + (lonE6 / 1E6 ) + " " + (latE6 / 1E6 ) + " )";
+		}
+		
 	@Override
 	protected Node clone() {
 		return new Node(id, sourceId, latE6, lonE6, latProjected, lonProjected, elevation);

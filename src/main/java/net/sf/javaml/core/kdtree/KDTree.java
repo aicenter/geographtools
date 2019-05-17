@@ -68,8 +68,8 @@ public class KDTree<V> {
 	/**
 	 * Insert a node in a KD-tree. Uses algorithm translated from 352.ins.c of
 	 * <p>
-	 * <PRE> &#064;Book{GonnetBaezaYates1991, author =    {G.H. Gonnet and R. Baeza-Yates}, title =     {Handbook of
-	 * Algorithms and Data Structures}, publisher = {Addison-Wesley}, year =      {1991} } </PRE>
+	 * <PRE> &#064;Book{GonnetBaezaYates1991, author =	{G.H. Gonnet and R. Baeza-Yates}, title =	 {Handbook of
+	 * Algorithms and Data Structures}, publisher = {Addison-Wesley}, year =	  {1991} } </PRE>
 	 *
 	 * @param key
 	 * 		key for KD-tree node
@@ -133,7 +133,7 @@ public class KDTree<V> {
 	 * Find KD-tree node whose key is nearest neighbor to key. Implements the Nearest Neighbor algorithm (Table 6.4) of
 	 * <p>
 	 * <PRE> &#064;techreport{AndrewMooreNearestNeighbor, author  = {Andrew Moore}, title   = {An introductory tutorial
-	 * on kd-trees}, institution = {Robotics Institute, Carnegie Mellon University}, year    = {1991}, number  =
+	 * on kd-trees}, institution = {Robotics Institute, Carnegie Mellon University}, year	= {1991}, number  =
 	 * {Technical Report No. 209, Computer Laboratory, University of Cambridge}, address = {Pittsburgh, PA} } </PRE>
 	 *
 	 * @param key

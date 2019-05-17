@@ -178,7 +178,7 @@ public class StronglyConnectedComponentsFinder {
 						currentStarting = ordering.pop();
 					}
 
-                    /**/
+					/**/
 				} while (alreadyInSomeRegion.contains(currentStarting));
 				if (empty) {
 					break;

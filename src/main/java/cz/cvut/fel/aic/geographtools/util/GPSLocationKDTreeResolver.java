@@ -14,7 +14,7 @@ public class GPSLocationKDTreeResolver<T extends GPSLocation> implements KDTreeR
 	@Override
 	public double computeDistance(T v1, double[] coords) {
 		return DistanceUtil.computeEuclideanDistance(v1.getLatitudeProjected(), v1.getLongitudeProjected(), coords[1], 
-                coords[0]);
+				coords[0]);
 	}
 
 	/**
@@ -27,8 +27,8 @@ public class GPSLocationKDTreeResolver<T extends GPSLocation> implements KDTreeR
 
 	/**
 	 * Static version of getCoordinates to be used without class initialization.
-     * @param v1 location
-     * @return coordinates of the location as array
+	 * @param v1 location
+	 * @return coordinates of the location as array
 	 */
 	private static double[] getCoords(GPSLocation v1) {
 		return new double[]{v1.getLongitudeProjected(), v1.getLatitudeProjected()};
