@@ -17,7 +17,8 @@
 
 package cz.cvut.fel.aic.geographtools;
 
-import com.vividsolutions.jts.geom.Coordinate;
+//import com.vividsolutions.jts.geom.Coordinate;
+import org.locationtech.jts.geom.Coordinate;
 import cz.cvut.fel.aic.geographtools.util.Transformer;
 import java.io.Serializable;
 
