@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>cz.cvut.fel.aic</groupId>
 		<artifactId>aicenter-parent</artifactId>
-		<version>1.1</version>
+		<version>1.1.1</version>
 	</parent>
 
 	<groupId>cz.cvut.fel.aic</groupId>
 	<artifactId>geographtools</artifactId>
-	<version>1.1</version>
+	<version>1.1.1</version>
 
 	<dependencies>
 		<dependency>
@@ -34,9 +34,8 @@
 			<version>20.1</version>
 		</dependency>
 		<dependency>
-			<groupId>com.vividsolutions</groupId>
-			<artifactId>jts</artifactId>
-			<version>1.13</version>
+			<groupId>org.locationtech.jts</groupId>
+			<artifactId>jts-core</artifactId>
 		</dependency>
 		
 		 <!--runtime dependency - do not remove-->
@@ -68,9 +67,9 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-                                <configuration>
-                                 <source>8</source>
-                                </configuration> 
+				<configuration>
+					<source>8</source>
+				</configuration> 
 			</plugin>
 		</plugins>
 	</build>
