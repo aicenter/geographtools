@@ -1,7 +1,6 @@
 /* This code is owned by Umotional s.r.o. (IN: 03974618). All Rights Reserved. */
 package cz.cvut.fel.aic.geographtools.util;
 
-//import com.vividsolutions.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Coordinate;
 import org.junit.Assert;
 import org.junit.Test;
