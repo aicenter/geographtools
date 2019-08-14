@@ -34,20 +34,21 @@ public class Edge<N extends Node> implements Serializable, Cloneable {
 	public final N toNode;
 
 	/**
-	 * length of the edge in meters
+	 * length of the edge in centimeters
 	 */
-	public final int length;
+	protected final int length;
 
-	public int getLength() {
+	
+	public int getLengthCm() {
 		return length;
 	}
 	
 	
   
-	public Edge(N fromNode, N toNode, int length) {
+	public Edge(N fromNode, N toNode, int lengthInCm) {
 		this.fromNode = fromNode;
 		this.toNode = toNode;
-		this.length = length;
+		this.length = lengthInCm;
 	}
 
 	public Node getFromNode() {
