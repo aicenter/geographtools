@@ -21,17 +21,17 @@
 		<dependency>
 			<groupId>org.geotools</groupId>
 			<artifactId>gt-referencing</artifactId>
-			<version>24-SNAPSHOT</version>
+			<version>21.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.geotools</groupId>
 			<artifactId>gt-opengis</artifactId>
-			<version>24-SNAPSHOT</version>
+			<version>21.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.geotools</groupId>
 			<artifactId>gt-api</artifactId>
-			<version>24-SNAPSHOT</version>
+			<version>20.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.locationtech.jts</groupId>
@@ -42,7 +42,7 @@
 		<dependency>
 			<groupId>org.geotools</groupId>
 			<artifactId>gt-epsg-hsql</artifactId>
-			<version>24-SNAPSHOT</version>
+			<version>21.0</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>commons-pool</artifactId>
@@ -76,18 +76,27 @@
 
 	<repositories>
 		<repository>
-			<<id>osgeo</id>
-        		<name>OSGeo Release Repository</name>
-        		<url>https://repo.osgeo.org/repository/release/</url>
-        		<snapshots><enabled>false</enabled></snapshots>
-        		<releases><enabled>true</enabled></releases>
+			<snapshots>
+			<updatePolicy>always</updatePolicy>
+			</snapshots>
+			<releases />
+			<id>atg-repo</id>
+			<name>atg-repo</name>
+			<url>http://jones.felk.cvut.cz/artifactory/repo</url>
 		</repository>
 		<repository>
-			<id>osgeo-snapshot</id>
+			<id>osgeo</id>
+			<name>OSGeo Release Repository</name>
+			<url>https://repo.osgeo.org/repository/release/</url>
+			<snapshots><enabled>false</enabled></snapshots>
+			<releases><enabled>true</enabled></releases>
+      		</repository>
+      		<repository>
+        		<id>osgeo-snapshot</id>
         		<name>OSGeo Snapshot Repository</name>
         		<url>https://repo.osgeo.org/repository/snapshot/</url>
         		<snapshots><enabled>true</enabled></snapshots>
         		<releases><enabled>false</enabled></releases>
-        	</repository>
+      		</repository>
 	</repositories>
 </project>
