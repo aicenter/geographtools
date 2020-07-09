@@ -1,3 +1,8 @@
+# 2.0.1
+
+## Fixed
+- Geotools maven repo updated
+
 # 2.0.0
 
 ## Changed
