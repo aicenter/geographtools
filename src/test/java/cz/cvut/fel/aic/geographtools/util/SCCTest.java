@@ -3,12 +3,11 @@ package cz.cvut.fel.aic.geographtools.util;
 
 import cz.cvut.fel.aic.geographtools.Edge;
 import cz.cvut.fel.aic.geographtools.Node;
-import junit.framework.Assert;
-import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import junit.framework.Assert;
+import org.junit.Test;
 
 public class SCCTest {
 

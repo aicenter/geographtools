@@ -1,13 +1,11 @@
 package cz.cvut.fel.aic.geographtools.util;
 
-import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 public class InterpolationUtilTest {
 

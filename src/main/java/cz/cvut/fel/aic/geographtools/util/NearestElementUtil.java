@@ -1,17 +1,15 @@
 package cz.cvut.fel.aic.geographtools.util;
 
 //import com.vividsolutions.jts.geom.Coordinate;
-import org.locationtech.jts.geom.Coordinate;
 import cz.cvut.fel.aic.geographtools.GPSLocation;
-import net.sf.javaml.core.kdtree.KDTree;
-//import org.javatuples.Pair;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.List;
 import java.util.function.IntFunction;
 import java.util.stream.Collectors;
+import net.sf.javaml.core.kdtree.KDTree;
+import org.locationtech.jts.geom.Coordinate;
 
 /**
  * @author Marek Cuchy

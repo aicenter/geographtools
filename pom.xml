@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>cz.cvut.fel.aic</groupId>
 		<artifactId>aicenter-parent</artifactId>
-		<version>1.1.1</version>
+		<version>1.1.2-SNAPSHOT</version>
 	</parent>
 
 	<groupId>cz.cvut.fel.aic</groupId>
@@ -75,6 +75,15 @@
 	</build>
 
 	<repositories>
+		<repository>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+			<releases />
+			<id>atg-repo</id>
+			<name>atg-repo</name>
+			<url>http://jones.felk.cvut.cz/artifactory/repo</url>
+		</repository>
 		<repository>
 			<id>osgeo</id>
 			<name>Open Source Geospatial Foundation Repository</name>

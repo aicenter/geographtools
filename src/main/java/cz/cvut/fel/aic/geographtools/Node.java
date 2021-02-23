@@ -17,8 +17,8 @@
 
 package cz.cvut.fel.aic.geographtools;
 
-import java.io.Serializable;
 import cz.cvut.fel.aic.geographtools.util.Transformer;
+import java.io.Serializable;
 
 public class Node extends GPSLocation implements Serializable, Cloneable {
 

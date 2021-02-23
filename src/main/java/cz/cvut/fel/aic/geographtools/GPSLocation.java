@@ -18,9 +18,9 @@
 package cz.cvut.fel.aic.geographtools;
 
 
-import org.locationtech.jts.geom.Coordinate;
 import cz.cvut.fel.aic.geographtools.util.Transformer;
 import java.io.Serializable;
+import org.locationtech.jts.geom.Coordinate;
 
 public class GPSLocation implements Serializable, Cloneable {
 

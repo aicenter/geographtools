@@ -1,9 +1,9 @@
 /* This code is owned by Umotional s.r.o. (IN: 03974618). All Rights Reserved. */
 package cz.cvut.fel.aic.geographtools.util;
 
-import org.locationtech.jts.geom.Geometry;
-import org.locationtech.jts.geom.Coordinate;
 import java.io.Serializable;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.Geometry;
 
 /**
  * Class is responsible for converting GPS coordinates to local projected coordinates and from projected coordinates

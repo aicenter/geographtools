@@ -4,7 +4,6 @@ package cz.cvut.fel.aic.geographtools.util;
 import cz.cvut.fel.aic.geographtools.Edge;
 import cz.cvut.fel.aic.geographtools.GraphStructure;
 import cz.cvut.fel.aic.geographtools.Node;
-
 import java.util.*;
 import java.util.stream.Collectors;
 

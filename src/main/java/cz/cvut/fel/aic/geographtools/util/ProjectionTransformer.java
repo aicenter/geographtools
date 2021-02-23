@@ -1,16 +1,15 @@
 /* This code is owned by Umotional s.r.o. (IN: 03974618). All Rights Reserved. */
 package cz.cvut.fel.aic.geographtools.util;
 
-import org.locationtech.jts.geom.Geometry;
-import org.locationtech.jts.geom.Coordinate;
+import java.io.Serializable;
 import org.geotools.geometry.jts.JTS;
 import org.geotools.referencing.CRS;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.Geometry;
 import org.opengis.referencing.FactoryException;
 import org.opengis.referencing.crs.CoordinateReferenceSystem;
 import org.opengis.referencing.operation.MathTransform;
 import org.opengis.referencing.operation.TransformException;
-
-import java.io.Serializable;
 
 /**
  * Class is responsible for converting coordinates between source coordinate system and target coordinate system. The

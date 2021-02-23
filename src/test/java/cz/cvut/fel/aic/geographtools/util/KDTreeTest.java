@@ -3,13 +3,12 @@ package cz.cvut.fel.aic.geographtools.util;
 
 import cz.cvut.fel.aic.geographtools.GPSLocation;
 import cz.cvut.fel.aic.geographtools.util.KDTree.ConflictResolverMode;
-import org.junit.Assert;
-import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class KDTreeTest {
 

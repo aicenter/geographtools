@@ -18,9 +18,8 @@
 package cz.cvut.fel.aic;
 
 import cz.cvut.fel.aic.geographtools.BoundingBox;
-import org.junit.Test;
-
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class BoundingBoxTest {
 
