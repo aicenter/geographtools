@@ -1,5 +1,6 @@
 # 2.1.0
 - Added WKT export for GPSLocation
+- new UTM class with a static method for checking UTM coordinates
 
 # 2.0.1
 
