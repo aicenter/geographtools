@@ -1,3 +1,6 @@
+# 2.1.0
+- Added WKT export for GPSLocation
+
 # 2.0.1
 
 ## Fixed

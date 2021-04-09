@@ -22,7 +22,7 @@ import cz.cvut.fel.aic.geographtools.util.Transformer;
 import java.io.Serializable;
 import org.locationtech.jts.geom.Coordinate;
 
-public class GPSLocation implements Serializable, Cloneable {
+public class GPSLocation implements Serializable, Cloneable, WKTPrintableCoord {
 
 	private static final long serialVersionUID = 5990455754768534483L;
 
@@ -320,5 +320,10 @@ public class GPSLocation implements Serializable, Cloneable {
 	@Override
 	public String toString() {
 		return "GPS(" + "lat=" + getLatitude() + ", lon=" + getLongitude() + ", elevation=" + elevation + ')';
+	}
+
+	@Override
+	public String toWKTCoordinate() {
+		return String.format("%s %s", getLongitude(), getLatitude());
 	}
 }
